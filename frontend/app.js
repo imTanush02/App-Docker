@@ -20,7 +20,8 @@ app.get('/', (req, res) => {
 });
 app.post('/submit', async (req, res) => {
   try {
-    const response = await axios.post('http://backend:5000/api/submit', req.body);
+    const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000';
+    const response = await axios.post(`${backendUrl}/api/submit`, req.body);
      res.json(response.data);
   } catch (error) {
     console.error('Error submitting form:', error.response?.data || error.message);
@@ -33,7 +34,8 @@ app.post('/submit', async (req, res) => {
 // Fetch all submissions for the success page
 app.get('/success', async (req, res) => {
   try {
-     const response = await axios.get('http://backend:5000/api/submissions');
+     const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000';
+     const response = await axios.get(`${backendUrl}/api/submissions`);
    res.render('success', { submissions: response.data });
   } catch (error) {
     console.error('Error fetching submissions:', error);
