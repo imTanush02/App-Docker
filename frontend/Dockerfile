@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:18-alpine
 
 # Set working directory
 WORKDIR /usr/src/app
@@ -13,11 +13,11 @@ RUN npm install
 COPY . .
 
 # Environment variables
-ENV NODE_ENV=production
-ENV BACKEND_URL=http://backend:8000/api
+ENV NODE_ENV=development
+ENV PORT=3000
 
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Start the application
-CMD ["npm", "start"]
+# Start the application with nodemon for development
+CMD ["npm", "run", "dev"]
