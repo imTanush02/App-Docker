@@ -1,0 +1,7 @@
+# backend-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  MONGODB_URI: "mongodb+srv://lonereaper11145t_db_user:qlRpup69lmuD4boC@cluster0.07cztvv.mongodb.net/form_submissions?retryWrites=true&w=majority"

@@ -1,0 +1,7 @@
+# frontend-config.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+data:
+  BACKEND_URL: "http://backend-service:5000"
