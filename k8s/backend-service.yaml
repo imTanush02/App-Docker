@@ -4,9 +4,11 @@ kind: Service
 metadata:
   name: backend-service
 spec:
+  type: NodePort  # Add this line
   selector:
     app: backend
   ports:
   - protocol: TCP
     port: 5000
     targetPort: 5000
+    nodePort: 30008
